@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: platforms-deployment
+  name: commands-deployment
   labels:
-    app: platformservice
+    app: commandservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platformservice
+      app: commandservice
   template:
     metadata:
       labels:
-        app: platformservice
+        app: commandservice
     spec:
       containers:
-      - name: platformservice
-        image: kbourzayq/platformservice:latest
+      - name: commandservice
+        image: kbourzayq/commandservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: platform-service
+  name: commands-service
 spec:
   selector:
-    app: platformservice
+    app: commandservice
   ports:
   - port: 80
     targetPort: 80
