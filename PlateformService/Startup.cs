@@ -12,8 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PlateformService.Configuration;
 using PlateformService.Data;
 using PlateformService.DataSeed;
+using PlateformService.SyncDataServices.Http;
 
 namespace PlateformService
 {
@@ -33,15 +35,17 @@ namespace PlateformService
             services.AddDbContext<AppDbContext>(
                 options=> options.UseInMemoryDatabase("PlatformDb")
             );
+            //repo injection
+            services.AddScoped<IPlatformRepository, PlatformRepository>();
+            services.AddHttpClient<ICommandDataService,CommandDataService>();
+            //config sections
+            services.Configure<CommandServiceConfiguration>(Configuration.GetSection("CommandService"));
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlateformService", Version = "v1" });
             });
-           
-            //repo injection
-            services.AddScoped<IPlatformRepository, PlatformRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +58,7 @@ namespace PlateformService
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlateformService v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
