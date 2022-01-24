@@ -1,8 +1,19 @@
 # Microservice Demo
 
-This is a demo for the microservice architecture in dotnet 5.
+This is a demo for two microservices with deployment into kubernetes.
 
-This repo contains also the kubernetes deployment files.
+### **Microservice 1**
+
+ - A web api built with aspnet core and SQL Server as a DBMS.
+ - The web api will manage platforms (create, get by id and get all
+   platforms)
+
+### **Microservice 2**
+
+ - A web api built with aspnet core and SQL Server as a DBMS.
+
+ - The web api will manage the command lines associated with these
+   platforms.
 
 ## Repository folders description :
 
