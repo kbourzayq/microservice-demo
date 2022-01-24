@@ -35,8 +35,12 @@ check services and ports :
     kubectl get services
 
 ### TODO :
-Finalize the two microservices.
-Add Async communication using Event Bus ([RaabitMQ](https://www.rabbitmq.com/))
-Add a gRPC service inside the plateform microservice
-Add ingress controller ([ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/)) and the Ingress resource see [ingress-resource](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 
+ - [ ] Finalize the two microservices.
+ - [ ] Add Async communication using Event Bus
+       ([RaabitMQ](https://www.rabbitmq.com/))
+ - [ ] Add a gRPC service inside the plateform microservice
+ - [ ] Add ingress controller
+       ([ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/))
+       and the Ingress resource see
+       [ingress-resource](https://kubernetes.io/docs/concepts/services-networking/ingress/)
