@@ -50,6 +50,7 @@ check services and ports :
 ### TODO :
 
  - [ ] Finalize the two microservices.
+ - [ ] Add gRPC sync communication.
  - [ ] Add Async communication using Event Bus
        ([RaabitMQ](https://www.rabbitmq.com/))
  - [ ] Add a gRPC service inside the plateform microservice
